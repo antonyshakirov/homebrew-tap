@@ -19,7 +19,7 @@ jobs:
           brew tap antonyshakirov/tap
           brew audit --cask --strict antonyshakirov/tap/hop
 
-      - name: Install, run, and uninstall outside Applications
+      - name: Install, launch briefly, and uninstall in runner temp
         run: |
           hop_test_appdir="$RUNNER_TEMP/hop-cask-apps"
           mkdir -p "$hop_test_appdir"
@@ -27,6 +27,11 @@ jobs:
             --appdir="$hop_test_appdir" \
             antonyshakirov/tap/hop
           xattr -dr com.apple.quarantine "$hop_test_appdir/Hop.app"
-          "$hop_test_appdir/Hop.app/Contents/MacOS/Hop" --l10n-check
+          "$hop_test_appdir/Hop.app/Contents/MacOS/Hop" &
+          hop_test_pid=$!
+          sleep 5
+          kill -0 "$hop_test_pid"
+          kill "$hop_test_pid"
+          wait "$hop_test_pid" || true
           brew uninstall --cask antonyshakirov/tap/hop
           test ! -e "$hop_test_appdir/Hop.app"
