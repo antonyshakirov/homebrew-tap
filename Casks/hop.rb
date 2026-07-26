@@ -7,7 +7,7 @@ cask "hop" do
   desc "Menu bar toolkit for macOS"
   homepage "https://github.com/antonyshakirov/hop"
 
-  depends_on macos: ">= :sonoma"
+  depends_on macos: :sonoma
 
   app "Hop.app"
 
