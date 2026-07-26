@@ -1,0 +1,32 @@
+name: Test casks
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  hop:
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Audit
+        run: |
+          brew tap antonyshakirov/tap
+          brew audit --cask --strict antonyshakirov/tap/hop
+
+      - name: Install, run, and uninstall outside Applications
+        run: |
+          hop_test_appdir="$RUNNER_TEMP/hop-cask-apps"
+          mkdir -p "$hop_test_appdir"
+          brew install --cask \
+            --appdir="$hop_test_appdir" \
+            antonyshakirov/tap/hop
+          xattr -dr com.apple.quarantine "$hop_test_appdir/Hop.app"
+          "$hop_test_appdir/Hop.app/Contents/MacOS/Hop" --l10n-check
+          brew uninstall --cask antonyshakirov/tap/hop
+          test ! -e "$hop_test_appdir/Hop.app"
