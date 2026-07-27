@@ -1,6 +1,6 @@
 cask "hop" do
-  version "1.5.0"
-  sha256 "3e1b324bb881b14663976e8a35d87f66b0783abd4ee7369970e2d891adfa0657"
+  version "1.5.1"
+  sha256 "6877e2ebaa4023196bd1c2fcca66671a55f622209378db4b5fc7079c0ff126ac"
 
   url "https://github.com/antonyshakirov/hop/releases/download/v#{version}/Hop.dmg"
   name "Hop"
