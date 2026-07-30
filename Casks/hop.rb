@@ -1,8 +1,16 @@
 cask "hop" do
-  version "1.5.1"
-  sha256 "6877e2ebaa4023196bd1c2fcca66671a55f622209378db4b5fc7079c0ff126ac"
+  version "1.7.0"
 
-  url "https://github.com/antonyshakirov/hop/releases/download/v#{version}/Hop.dmg"
+  # One build per architecture: each carries only the code its own processor
+  # runs, so neither download is heavier than it has to be.
+  on_arm do
+    sha256 "f777c9c63f2939955856ea9c37e9e1722ddf71afeac5b2e305068bb4927219f6"
+    url "https://github.com/antonyshakirov/hop/releases/download/v#{version}/Hop.dmg"
+  end
+  on_intel do
+    sha256 "24a87e09d5c962c20cc8ac2714c795979b965702277531d4c4706dbc9d454427"
+    url "https://github.com/antonyshakirov/hop/releases/download/v#{version}/Hop-intel.dmg"
+  end
   name "Hop"
   desc "Menu bar toolkit for macOS"
   homepage "https://github.com/antonyshakirov/hop"
