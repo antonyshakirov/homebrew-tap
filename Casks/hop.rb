@@ -1,5 +1,5 @@
 cask "hop" do
-  version "1.8.0"
+  version "1.9.0"
 
   # One build per architecture: each carries only the code its own processor
   # runs, so neither download is heavier than it has to be.
@@ -10,12 +10,12 @@ cask "hop" do
   # per asset and nothing else. The bytes still come from GitHub, and the
   # sha256 below is checked against them as usual.
   on_arm do
-    sha256 "3c28b7129ba10e1f828a74258cb088ec6e3ad3fb4bae18a4bcd16d24bdba73fe"
+    sha256 "549ab6f684d81ba7cf1f0460b516173e76c7648303878a258ce057161cdbfb9a"
     url "https://www.antonshakirov.com/api/hop/download/v#{version}/Hop.dmg",
         verified: "antonshakirov.com/"
   end
   on_intel do
-    sha256 "7988b0fdc17af8b233002bf258d20c5c4e7614115405d9729f85d6718b87dc0f"
+    sha256 "6c7684fb10422f3b2b7d7f8e55a3713bcb38ad302e97debaea7d1a2402e73878"
     url "https://www.antonshakirov.com/api/hop/download/v#{version}/Hop-intel.dmg",
         verified: "antonshakirov.com/"
   end
