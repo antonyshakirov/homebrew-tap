@@ -28,8 +28,8 @@ To remove the app and its saved settings and Application Support data:
 brew uninstall --cask --zap antonyshakirov/tap/hop
 ```
 
-Hop requires macOS 14 or newer. It is not notarized because Apple Developer
-Program membership is unavailable to the author. On macOS 15 or newer, try
-to open Hop once, then go to **System Settings → Privacy & Security → Open
-Anyway** and confirm **Open**. The source is public, and built-in updates are
-verified with Ed25519.
+Hop requires macOS 14 or newer. It is signed with an Apple Developer ID and
+notarized by Apple, so macOS opens it like any other app. The source is
+public, and built-in updates are verified with Ed25519. Upgrading from a
+version before 1.9.1: the signature changed, so macOS sees a new app and asks
+for Hop's permissions again.
