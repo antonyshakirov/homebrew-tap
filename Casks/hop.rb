@@ -1,14 +1,14 @@
 cask "hop" do
-  version "1.9.1"
+  version "1.10.0"
 
   # One build per architecture: each carries only the code its own processor
   # runs, so neither download is heavier than it has to be.
   on_arm do
-    sha256 "87c1800efd6e81baf6940e85f4fb71463fc5420d4507b418618ac3884dcd1e36"
+    sha256 "dc7618e4cdcc333a460dd163cbdfd4057bfae4a98d70a72b86c254ff4642c2c1"
     url "https://github.com/antonyshakirov/hop/releases/download/v#{version}/Hop.dmg"
   end
   on_intel do
-    sha256 "39341d19a8bed3a204a06236524b02f2366eccf8603cbae22235f22fbdffda34"
+    sha256 "858a2eb577679d5a55e3bde6424a0856252f2f45c6184b6a01c52d1f062c2499"
     url "https://github.com/antonyshakirov/hop/releases/download/v#{version}/Hop-intel.dmg"
   end
   name "Hop"
@@ -24,8 +24,10 @@ cask "hop" do
     opens it like any other app. The source is public, and built-in updates
     are verified with Ed25519.
 
-    Upgrading from a version before 1.9.1: the signature changed, so macOS
-    sees a new app and asks for Hop's permissions again.
+    Upgrading to 1.10.0: every permission is cleared once and asked for
+    again. A permission belongs to a code signature, and Hop's changed when
+    Apple signed it, so the ones granted to the old signature stayed in the
+    list and quietly stopped working. From 1.10.0 on they survive an update.
   EOS
 
   zap trash: [
