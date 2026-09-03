@@ -30,8 +30,11 @@ cask "hop" do
     list and quietly stopped working. From 1.10.0 on they survive an update.
   EOS
 
-  zap trash: [
-    "~/Library/Application Support/com.antonshakirov.minimo",
-    "~/Library/Preferences/com.antonshakirov.minimo.plist",
-  ]
+  zap trash:  [
+        "~/Library/Application Support/com.antonshakirov.minimo",
+        "~/Library/Preferences/com.antonshakirov.minimo.plist",
+      ],
+      # only exists if the closed-lid mode was ever used: a NOPASSWD rule
+      # strictly for `pmset disablesleep 0/1`, which root has to remove
+      delete: "/etc/sudoers.d/hop-pmset"
 end
