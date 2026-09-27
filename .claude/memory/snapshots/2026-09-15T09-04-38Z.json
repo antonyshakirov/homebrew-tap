@@ -1,0 +1,21 @@
+{
+  "schema": "1.0",
+  "ts": "2026-09-15T09-04-38Z",
+  "trigger": "PreCompact",
+  "project": "",
+  "branch": "main",
+  "active_state_path": "",
+  "state_md": "",
+  "memory_index_md": "",
+  "last_commits": "ded5cd1 hop 2.1.0
+e27c584 hop 2.0.3
+e177e50 hop 2.0.2
+5aa03f4 hop 2.0.1
+c9080ee hop 2.0.2
+6e53311 hop 2.0.1
+9833f71 hop 2.0.0
+a500df9 hop: zap removes the pmset sudoers rule
+4db3ac1 hop 1.10.0
+b97a4fa hop 1.9.1",
+  "dirty_files": ""
+}
