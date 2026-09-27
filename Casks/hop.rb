@@ -1,14 +1,14 @@
 cask "hop" do
-  version "2.1.5"
+  version "2.1.6"
 
   # One build per architecture: each carries only the code its own processor
   # runs, so neither download is heavier than it has to be.
   on_arm do
-    sha256 "240618df1a3e4da10515f1b37b7e142677bcef5544dee98f13a29290cf74afa9"
+    sha256 "1d719c42ff22214149d4a3ca8e2673184f3b78dccde586338cf97019bb4fa9d1"
     url "https://github.com/antonyshakirov/hop/releases/download/v#{version}/Hop.dmg"
   end
   on_intel do
-    sha256 "d4c009ce0814def8de0257c69cb4d0ad1193b9326c33552951253664b50adf3d"
+    sha256 "f236bfbac6ee6d52f1332e095157eb32e614813eee0b4e52df3877b0fcaa278f"
     url "https://github.com/antonyshakirov/hop/releases/download/v#{version}/Hop-intel.dmg"
   end
   name "Hop"
