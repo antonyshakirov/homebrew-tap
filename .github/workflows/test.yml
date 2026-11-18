@@ -17,6 +17,7 @@ jobs:
       - name: Audit
         run: |
           brew tap antonyshakirov/tap
+          brew trust --cask antonyshakirov/tap/hop
           brew audit --cask --strict antonyshakirov/tap/hop
 
       - name: Install, launch briefly, and uninstall in runner temp
